@@ -38,6 +38,98 @@ export const constantRouterMap = [
   },
 
   {
+    path: '/teacherManager',
+    component: Layout,
+    redirect: '/teacherManager/table',
+    name: '讲师管理',
+    meta: { title: '讲师管理', icon: 'example' },
+    children: [
+      {
+        path: 'list',
+        name: '讲师列表',
+        component: () => import('@/views/edu/teacher/list'),
+        meta: { title: '讲师列表', icon: 'table' }
+      },
+      {
+        path: 'save',
+        name: '添加讲师',
+        component: () => import('@/views/edu/teacher/save'),
+        meta: { title: '添加讲师', icon: 'tree' }
+      },
+      {
+        path: 'edit/:id',
+        name: '修改讲师',
+        component: () => import('@/views/edu/teacher/save'),
+        meta: { title: '修改讲师', icon: 'tree' },
+        hidden: true
+      }
+    ]
+  },
+  {
+    path: '/courseManager',
+    component: Layout,
+    redirect: '/subjectManager/list',
+    name: '课程管理',
+    meta: { title: '课程管理', icon: 'example' },
+    children: [
+      {
+        path: 'list',
+        name: '课程列表',
+        component: () => import('@/views/edu/course/list'),
+        meta: { title: '课程列表', icon: 'table' }
+      },
+      {
+        path: 'info',
+        name: '添加课程',
+        component: () => import('@/views/edu/course/info'),
+        meta: { title: '添加课程', icon: 'tree' }
+      },
+      {
+        path: 'info/:id',
+        name: '编辑课程基本信息',
+        component: () => import('@/views/edu/course/info'),
+        meta: { title: '编辑课程基本信息', nocCache: true},
+        hidden: true
+      },
+      {
+        path: 'chapter/:id',
+        name: '编辑课程大纲',
+        component: () => import('@/views/edu/course/chapter'),
+        meta: { title: '编辑课程大纲', nocCache: true },
+        hidden: true
+      },
+      {
+        path: 'publish/:id',
+        name: '发布课程',
+        component: () => import('@/views/edu/course/publish'),
+        meta: { title: '发布课程',  nocCache: true  },
+        hidden: true
+      }
+    ]
+  },
+
+  {
+    path: '/subjectManager',
+    component: Layout,
+    redirect: '/subjectManager/list',
+    name: '课程分类管理',
+    meta: { title: '课程分类管理', icon: 'example' },
+    children: [
+      {
+        path: 'list',
+        name: '课程分类列表',
+        component: () => import('@/views/edu/subject/list'),
+        meta: { title: '课程分类列表', icon: 'table' }
+      },
+      {
+        path: 'save',
+        name: '添加课程分类',
+        component: () => import('@/views/edu/subject/save'),
+        meta: { title: '添加课程分类', icon: 'tree' }
+      }
+    ]
+  },
+  {
     path: '/example',
     component: Layout,
     redirect: '/example/table',
